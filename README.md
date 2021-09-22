@@ -1,4 +1,4 @@
-# barter_eth
+# Ez Xchange
 
 A new Flutter project.
 
