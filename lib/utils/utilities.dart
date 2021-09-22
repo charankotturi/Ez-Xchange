@@ -1,0 +1,3 @@
+class PassOpenDrawer {
+  void openDrawer() {}
+}
