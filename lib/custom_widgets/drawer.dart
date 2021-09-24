@@ -22,7 +22,7 @@ Drawer customDrawer() {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.post_add),
+            leading: Icon(Icons.add_circle),
             title: Text("Create New Post"),
             onTap: () {},
           ),
