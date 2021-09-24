@@ -11,6 +11,14 @@ class PostPage extends StatefulWidget {
 }
 
 class _PostPageState extends State<PostPage> {
+  bool isSaved = false;
+
+  void toggleSave() {
+    setState(() {
+      isSaved = !isSaved;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +36,42 @@ class _PostPageState extends State<PostPage> {
           SizedBox(
             height: 10,
           ),
-          Container(
-              height: MediaQuery.of(context).size.height / 3,
-              color: Colors.black),
+          Stack(children: [
+            Container(
+                margin: const EdgeInsets.only(bottom: 10),
+                height: MediaQuery.of(context).size.height / 3,
+                color: Colors.black),
+            Positioned(
+              child: InkWell(
+                onTap: toggleSave,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    // borderRadius: BorderRadius.all(Radius.circular(5)),
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.4),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: Offset(0, 7), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: Icon(
+                      Icons.bookmark,
+                      size: 30,
+                      color: !isSaved ? Colors.grey : Colors.blue[500],
+                    ),
+                  ),
+                ),
+              ),
+              bottom: 0,
+              right: 10,
+            ),
+          ]),
           Padding(
             padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
             child: Text(
